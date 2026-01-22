@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Aditi Wagh Portfolio</title>
+  <!-- ✅ Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Your Custom CSS -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- ✅ Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<nav class="portfolio-nav">
+  <div class="nav-left">
+    <span class="brand-logo">ADITI</span>
+  </div>
+
+  <ul class="nav-menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/skills">Skills</a></li>
+    <li><a href="/projects">Projects</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- skills -->
+
+
+<section id="skills" class="skills-bar-section">
+
+
+  <h2 class="skills-heading"><span> My Skills</span></h2>
+  <p class="skills-desc">
+    I focus on building clean, responsive, and user-friendly digital experiences.
+  </p>
+
+  <div class="skills-list">
+
+    <div class="skill" data-percent="90">
+      <div class="skill-info">
+        <span>HTML & CSS</span>
+        <span class="count">0%</span>
+      </div>
+      <div class="progress">
+        <div class="progress-bar"></div>
+      </div>
+    </div>
+
+    <div class="skill" data-percent="85">
+      <div class="skill-info">
+        <span>JavaScript</span>
+        <span class="count">0%</span>
+      </div>
+      <div class="progress">
+        <div class="progress-bar"></div>
+      </div>
+    </div>
+
+    <div class="skill" data-percent="88">
+      <div class="skill-info">
+        <span>MongoDB</span>
+        <span class="count">0%</span>
+      </div>
+      <div class="progress">
+        <div class="progress-bar"></div>
+      </div>
+    </div>
+
+    <div class="skill" data-percent="87">
+      <div class="skill-info">
+        <span>SQL</span>
+        <span class="count">0%</span>
+      </div>
+      <div class="progress">
+        <div class="progress-bar"></div>
+      </div>
+    </div>
+
+    <div class="skill" data-percent="80">
+      <div class="skill-info">
+        <span>Node.js</span>
+        <span class="count">0%</span>
+      </div>
+      <div class="progress">
+        <div class="progress-bar"></div>
+      </div>
+    </div>
+
+    <div class="skill" data-percent="90">
+      <div class="skill-info">
+        <span>Figma</span>
+        <span class="count">0%</span>
+      </div>
+      <div class="progress">
+        <div class="progress-bar"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const skills = document.querySelectorAll(".skill");
+  let animated = false;
+
+  function animateSkills() {
+    skills.forEach(skill => {
+      const target = skill.dataset.percent;
+      const bar = skill.querySelector(".progress-bar");
+      const count = skill.querySelector(".count");
+
+      let current = 0;
+
+      const interval = setInterval(() => {
+        if (current >= target) {
+          clearInterval(interval);
+        } else {
+          current++;
+          count.textContent = current + "%";
+          bar.style.width = current + "%";
+        }
+      }, 15);
+    });
+  }
+
+  // Trigger on scroll
+  window.addEventListener("scroll", () => {
+    const section = document.getElementById("skills");
+    const sectionTop = section.getBoundingClientRect().top;
+    const screenHeight = window.innerHeight;
+
+    if (sectionTop < screenHeight - 150 && !animated) {
+      animateSkills();
+      animated = true;
+    }
+  });
+
+});
+</script>
